@@ -1,0 +1,11 @@
+File Path,Description
+requirements.txt,Python dependencies
+.gitignore,Git ignore rules
+README.md,Project documentation
+API.md,API documentation
+models/notes_manager.py,Singleton Pattern - Notes storage manager
+services/notes_service.py,Facade Pattern - Service layer with validation
+app.py,Main Flask application with RESTful API
+templates/index.html,Frontend HTML template
+static/style.css,CSS styling
+static/script.js,Frontend JavaScript

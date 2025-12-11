@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Sharing App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Notes Sharing</h1>
+            <p class="subtitle">Create, edit, and manage your notes (max 300 characters)</p>
+        </header>
+
+        <main>
+            <!-- Create Note Section -->
+            <section class="create-section">
+                <h2>Create New Note</h2>
+                <div class="note-form">
+                    <textarea 
+                        id="noteContent" 
+                        placeholder="Enter your note here..."
+                        maxlength="300"
+                    ></textarea>
+                    <div class="form-footer">
+                        <span class="char-count">
+                            <span id="charCount">0</span>/300
+                        </span>
+                        <button id="createBtn" class="btn btn-primary">Create Note</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notes List Section -->
+            <section class="notes-section">
+                <div class="section-header">
+                    <h2>Your Notes</h2>
+                    <span class="notes-count">Total: <span id="notesCount">0</span></span>
+                </div>
+                <div id="notesList" class="notes-list">
+                    <!-- Notes will be dynamically loaded here -->
+                </div>
+                <div id="emptyState" class="empty-state">
+                    <p>No notes yet. Create your first note above!</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with Flask & Vanilla JavaScript | Design Patterns: Singleton & Facade</p>
+        </footer>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Note</h3>
+                <button class="close-btn" onclick="closeEditModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <textarea 
+                    id="editContent" 
+                    placeholder="Edit your note..."
+                    maxlength="300"
+                ></textarea>
+                <div class="form-footer">
+                    <span class="char-count">
+                        <span id="editCharCount">0</span>/300
+                    </span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+                <button class="btn btn-primary" id="saveEditBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
